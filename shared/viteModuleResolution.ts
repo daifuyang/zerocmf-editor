@@ -8,9 +8,6 @@ import type { Alias } from "vite";
 export default function moduleResolution(environment: "development" | "production"): Alias[] {
   const packageName = "shared"; // 包名称
   const packagePath = path.resolve(__dirname, "../shared"); // shared 包的路径
-
-  console.log("packagePath", packagePath);
-
   if (environment === "development") {
     // 开发环境：直接引用源码
     return [
