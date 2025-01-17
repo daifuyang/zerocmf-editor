@@ -1,0 +1,28 @@
+{
+  "name": "shared",
+  "private": "true",
+  "keywords": [
+    "react",
+    "lexical",
+    "editor",
+    "rich-text"
+  ],
+  "license": "MIT",
+  "version": "0.23.1",
+  "dependencies": {
+    "@excalidraw/excalidraw": "^0.17.6",
+    "@lexical/file": "^0.23.1",
+    "@types/katex": "^0.16.7",
+    "@types/lodash-es": "^4.17.12",
+    "katex": "^0.16.20",
+    "lexical": "0.23.1",
+    "lodash-es": "^4.17.21",
+    "y-websocket": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/lexical",
+    "directory": "packages/shared"
+  },
+  "sideEffects": false
+}
