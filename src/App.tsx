@@ -4,16 +4,16 @@ import { $isTextNode, DOMConversionMap, TextNode } from "lexical";
 import { SharedHistoryContext } from "./context/SharedHistoryContext";
 import { ToolbarContext } from "./context/ToolbarContext";
 import Editor from "./Editor";
-import logo from "./images/logo.svg";
+
 import PlaygroundNodes from "./nodes/PlaygroundNodes";
 import { TableContext } from "./plugins/TablePlugin";
 import { parseAllowedFontSize } from "./plugins/ToolbarPlugin/fontSize";
-import Settings from "./Settings";
+// import Settings from "./Settings";
 import PlaygroundEditorTheme from "./themes/PlaygroundEditorTheme";
 import { parseAllowedColor } from "./ui/ColorPicker";
 import { FlashMessageContext } from "./context/FlashMessageContext";
 import { SettingsContext } from "./context/SettingsContext";
-
+import "./App.css";
 function App(): JSX.Element {
   function getExtraStyles(element: HTMLElement): string {
     // Parse styles from pasted input, but only if they match exactly the
@@ -97,15 +97,10 @@ function App(): JSX.Element {
           <SharedHistoryContext>
             <TableContext>
               <ToolbarContext>
-                <header>
-                  <a href="https://lexical.dev" target="_blank" rel="noreferrer">
-                    <img src={logo} alt="Lexical Logo" />
-                  </a>
-                </header>
                 <div className="editor-shell">
                   <Editor />
                 </div>
-                <Settings />
+                {/* <Settings /> */}
               </ToolbarContext>
             </TableContext>
           </SharedHistoryContext>
