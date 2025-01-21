@@ -110,16 +110,16 @@ export function InsertTableDialog({
   return (
     <>
       <TextInput
-        placeholder={'# of rows (1-500)'}
-        label="Rows"
+        placeholder={'行数(1-500)'}
+        label="行数"
         onChange={setRows}
         value={rows}
         data-test-id="table-modal-rows"
         type="number"
       />
       <TextInput
-        placeholder={'# of columns (1-50)'}
-        label="Columns"
+        placeholder={'列数(1-50)'}
+        label="列数"
         onChange={setColumns}
         value={columns}
         data-test-id="table-modal-columns"
@@ -127,7 +127,7 @@ export function InsertTableDialog({
       />
       <DialogActions data-test-id="table-model-confirm-insert">
         <Button disabled={isDisabled} onClick={onClick}>
-          Confirm
+          确认
         </Button>
       </DialogActions>
     </>

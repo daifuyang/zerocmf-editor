@@ -6,17 +6,17 @@
  *
  *
  */
-.PlaygroundEditorTheme__ltr {
+.zerocmf-editor-ltr {
   text-align: left;
 }
-.PlaygroundEditorTheme__rtl {
+.zerocmf-editor-rtl {
   text-align: right;
 }
-.PlaygroundEditorTheme__paragraph {
+.zerocmf-editor-paragraph {
   margin: 0;
   position: relative;
 }
-.PlaygroundEditorTheme__quote {
+.zerocmf-editor-quote {
   margin: 0;
   margin-left: 20px;
   margin-bottom: 10px;
@@ -27,52 +27,55 @@
   border-left-style: solid;
   padding-left: 16px;
 }
-.PlaygroundEditorTheme__h1 {
+.zerocmf-editor-h1 {
+  font-size: 38px;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  line-height: 1.2105263157894737;
+}
+.zerocmf-editor-h2 {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  line-height: 1.2666666666666666;
+}
+.zerocmf-editor-h3 {
   font-size: 24px;
-  color: rgb(5, 5, 5);
-  font-weight: 400;
-  margin: 0;
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  line-height: 1.3333333333333333;
 }
-.PlaygroundEditorTheme__h2 {
-  font-size: 15px;
-  color: rgb(101, 103, 107);
-  font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
-}
-.PlaygroundEditorTheme__h3 {
-  font-size: 12px;
-  margin: 0;
-  text-transform: uppercase;
-}
-.PlaygroundEditorTheme__indent {
+.zerocmf-editor-indent {
   --lexical-indent-base-value: 40px;
 }
-.PlaygroundEditorTheme__textBold {
+.zerocmf-editor-textBold {
   font-weight: bold;
 }
-.PlaygroundEditorTheme__textItalic {
+.zerocmf-editor-textItalic {
   font-style: italic;
 }
-.PlaygroundEditorTheme__textUnderline {
+.zerocmf-editor-textUnderline {
   text-decoration: underline;
 }
 
-.PlaygroundEditorTheme__textStrikethrough {
+.zerocmf-editor-textStrikethrough {
   text-decoration: line-through;
 }
 
-.PlaygroundEditorTheme__textUnderlineStrikethrough {
+.zerocmf-editor-textUnderlineStrikethrough {
   text-decoration: underline line-through;
 }
 
-.PlaygroundEditorTheme__tabNode {
+.zerocmf-editor-tabNode {
   position: relative;
   text-decoration: none;
 }
 
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textUnderline::after {
-  content: '';
+.zerocmf-editor-tabNode.zerocmf-editor-textUnderline::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -80,8 +83,8 @@
   border-bottom: 0.1em solid currentColor;
 }
 
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textStrikethrough::before {
-  content: '';
+.zerocmf-editor-tabNode.zerocmf-editor-textStrikethrough::before {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
@@ -89,66 +92,66 @@
   border-top: 0.1em solid currentColor;
 }
 
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textUnderlineStrikethrough::before,
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textUnderlineStrikethrough::after {
-  content: '';
+.zerocmf-editor-tabNode.zerocmf-editor-textUnderlineStrikethrough::before,
+.zerocmf-editor-tabNode.zerocmf-editor-textUnderlineStrikethrough::after {
+  content: "";
   position: absolute;
   left: 0;
   right: 0;
 }
 
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textUnderlineStrikethrough::before {
+.zerocmf-editor-tabNode.zerocmf-editor-textUnderlineStrikethrough::before {
   top: 0.69em;
   border-top: 0.1em solid currentColor;
 }
 
-.PlaygroundEditorTheme__tabNode.PlaygroundEditorTheme__textUnderlineStrikethrough::after {
+.zerocmf-editor-tabNode.zerocmf-editor-textUnderlineStrikethrough::after {
   bottom: 0.05em;
   border-bottom: 0.1em solid currentColor;
 }
 
-.PlaygroundEditorTheme__textSubscript {
+.zerocmf-editor-textSubscript {
   font-size: 0.8em;
   vertical-align: sub !important;
 }
-.PlaygroundEditorTheme__textSuperscript {
+.zerocmf-editor-textSuperscript {
   font-size: 0.8em;
   vertical-align: super;
 }
-.PlaygroundEditorTheme__textCode {
+.zerocmf-editor-textCode {
   background-color: rgb(240, 242, 245);
   padding: 1px 0.25rem;
   font-family: Menlo, Consolas, Monaco, monospace;
   font-size: 94%;
 }
-.PlaygroundEditorTheme__textLowercase {
+.zerocmf-editor-textLowercase {
   text-transform: lowercase;
 }
-.PlaygroundEditorTheme__textUppercase {
+.zerocmf-editor-textUppercase {
   text-transform: uppercase;
 }
-.PlaygroundEditorTheme__textCapitalize {
+.zerocmf-editor-textCapitalize {
   text-transform: capitalize;
 }
-.PlaygroundEditorTheme__hashtag {
+.zerocmf-editor-hashtag {
   background-color: rgba(88, 144, 255, 0.15);
   border-bottom: 1px solid rgba(88, 144, 255, 0.3);
 }
-.PlaygroundEditorTheme__link {
+.zerocmf-editor-link {
   color: rgb(33, 111, 219);
   text-decoration: none;
 }
-.PlaygroundEditorTheme__link:hover {
+.zerocmf-editor-link:hover {
   text-decoration: underline;
   cursor: pointer;
 }
-.PlaygroundEditorTheme__blockCursor {
+.zerocmf-editor-blockCursor {
   display: block;
   pointer-events: none;
   position: absolute;
 }
-.PlaygroundEditorTheme__blockCursor:after {
-  content: '';
+.zerocmf-editor-blockCursor:after {
+  content: "";
   display: block;
   position: absolute;
   top: -2px;
@@ -161,7 +164,7 @@
     visibility: hidden;
   }
 }
-.PlaygroundEditorTheme__code {
+.zerocmf-editor-code {
   background-color: rgb(240, 242, 245);
   font-family: Menlo, Consolas, Monaco, monospace;
   display: block;
@@ -175,7 +178,7 @@
   position: relative;
   tab-size: 2;
 }
-.PlaygroundEditorTheme__code:before {
+.zerocmf-editor-code:before {
   content: attr(data-gutter);
   position: absolute;
   background-color: #eee;
@@ -188,23 +191,23 @@
   text-align: right;
   min-width: 25px;
 }
-.PlaygroundEditorTheme__tableScrollableWrapper {
+.zerocmf-editor-tableScrollableWrapper {
   overflow-x: auto;
   margin: 0px 25px 30px 0px;
 }
-.PlaygroundEditorTheme__tableScrollableWrapper > .PlaygroundEditorTheme__table {
+.zerocmf-editor-tableScrollableWrapper > .zerocmf-editor-table {
   /* Remove the table's vertical margin and put it on the wrapper */
   margin-top: 0;
   margin-bottom: 0;
 }
-.PlaygroundEditorTheme__tableAlignmentCenter {
+.zerocmf-editor-tableAlignmentCenter {
   margin-left: auto;
   margin-right: auto;
 }
-.PlaygroundEditorTheme__tableAlignmentRight {
+.zerocmf-editor-tableAlignmentRight {
   margin-left: auto;
 }
-.PlaygroundEditorTheme__table {
+.zerocmf-editor-table {
   border-collapse: collapse;
   border-spacing: 0;
   overflow-y: scroll;
@@ -214,16 +217,16 @@
   margin-top: 25px;
   margin-bottom: 30px;
 }
-.PlaygroundEditorTheme__tableRowStriping tr:nth-child(even) {
+.zerocmf-editor-tableRowStriping tr:nth-child(even) {
   background-color: #f2f5fb;
 }
-.PlaygroundEditorTheme__tableSelection *::selection {
+.zerocmf-editor-tableSelection *::selection {
   background-color: transparent;
 }
-.PlaygroundEditorTheme__tableSelected {
+.zerocmf-editor-tableSelected {
   outline: 2px solid rgb(60, 132, 244);
 }
-.PlaygroundEditorTheme__tableCell {
+.zerocmf-editor-tableCell {
   border: 1px solid #bbb;
   width: 75px;
   vertical-align: top;
@@ -237,10 +240,10 @@
   A firefox workaround to allow scrolling of overflowing table cell
   ref: https://bugzilla.mozilla.org/show_bug.cgi?id=1904159
 */
-.PlaygroundEditorTheme__tableCell > * {
+.zerocmf-editor-tableCell > * {
   overflow: inherit;
 }
-.PlaygroundEditorTheme__tableCellResizer {
+.zerocmf-editor-tableCellResizer {
   position: absolute;
   right: -4px;
   height: 100%;
@@ -249,14 +252,14 @@
   z-index: 10;
   top: 0;
 }
-.PlaygroundEditorTheme__tableCellHeader {
+.zerocmf-editor-tableCellHeader {
   background-color: #f2f3f5;
   text-align: start;
 }
-.PlaygroundEditorTheme__tableCellSelected {
+.zerocmf-editor-tableCellSelected {
   caret-color: transparent;
 }
-.PlaygroundEditorTheme__tableCellSelected::after {
+.zerocmf-editor-tableCellSelected::after {
   position: absolute;
   left: 0;
   right: 0;
@@ -264,10 +267,10 @@
   top: 0;
   background-color: highlight;
   mix-blend-mode: multiply;
-  content: '';
+  content: "";
   pointer-events: none;
 }
-.PlaygroundEditorTheme__tableAddColumns {
+.zerocmf-editor-tableAddColumns {
   position: absolute;
   background-color: #eee;
   height: 100%;
@@ -275,13 +278,13 @@
   border: 0;
   cursor: pointer;
 }
-.PlaygroundEditorTheme__tableAddColumns:after {
+.zerocmf-editor-tableAddColumns:after {
   background-image: url(../images/icons/plus.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
@@ -289,11 +292,11 @@
   height: 100%;
   opacity: 0.4;
 }
-.PlaygroundEditorTheme__tableAddColumns:hover,
-.PlaygroundEditorTheme__tableAddRows:hover {
+.zerocmf-editor-tableAddColumns:hover,
+.zerocmf-editor-tableAddRows:hover {
   background-color: #c9dbf0;
 }
-.PlaygroundEditorTheme__tableAddRows {
+.zerocmf-editor-tableAddRows {
   position: absolute;
   width: calc(100% - 25px);
   background-color: #eee;
@@ -301,13 +304,13 @@
   border: 0;
   cursor: pointer;
 }
-.PlaygroundEditorTheme__tableAddRows:after {
+.zerocmf-editor-tableAddRows:after {
   background-image: url(../images/icons/plus.svg);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: block;
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   left: 0;
@@ -323,7 +326,7 @@
     opacity: 1;
   }
 }
-.PlaygroundEditorTheme__tableCellResizeRuler {
+.zerocmf-editor-tableCellResizeRuler {
   display: block;
   position: absolute;
   width: 1px;
@@ -331,7 +334,7 @@
   height: 100%;
   top: 0;
 }
-.PlaygroundEditorTheme__tableCellActionButtonContainer {
+.zerocmf-editor-tableCellActionButtonContainer {
   display: block;
   right: 5px;
   top: 6px;
@@ -340,7 +343,7 @@
   width: 20px;
   height: 20px;
 }
-.PlaygroundEditorTheme__tableCellActionButton {
+.zerocmf-editor-tableCellActionButton {
   background-color: #eee;
   display: block;
   border: 0;
@@ -350,52 +353,52 @@
   color: #222;
   cursor: pointer;
 }
-.PlaygroundEditorTheme__tableCellActionButton:hover {
+.zerocmf-editor-tableCellActionButton:hover {
   background-color: #ddd;
 }
-.PlaygroundEditorTheme__characterLimit {
+.zerocmf-editor-characterLimit {
   display: inline;
   background-color: #ffbbbb !important;
 }
-.PlaygroundEditorTheme__ol1 {
+.zerocmf-editor-ol1 {
   padding: 0;
   margin: 0;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__ol2 {
+.zerocmf-editor-ol2 {
   padding: 0;
   margin: 0;
   list-style-type: upper-alpha;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__ol3 {
+.zerocmf-editor-ol3 {
   padding: 0;
   margin: 0;
   list-style-type: lower-alpha;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__ol4 {
+.zerocmf-editor-ol4 {
   padding: 0;
   margin: 0;
   list-style-type: upper-roman;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__ol5 {
+.zerocmf-editor-ol5 {
   padding: 0;
   margin: 0;
   list-style-type: lower-roman;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__ul {
+.zerocmf-editor-ul {
   padding: 0;
   margin: 0;
   list-style-position: outside;
 }
-.PlaygroundEditorTheme__listItem {
+.zerocmf-editor-listItem {
   margin: 0 32px;
 }
-.PlaygroundEditorTheme__listItemChecked,
-.PlaygroundEditorTheme__listItemUnchecked {
+.zerocmf-editor-listItemChecked,
+.zerocmf-editor-listItemUnchecked {
   position: relative;
   margin-left: 8px;
   margin-right: 8px;
@@ -404,12 +407,12 @@
   list-style-type: none;
   outline: none;
 }
-.PlaygroundEditorTheme__listItemChecked {
+.zerocmf-editor-listItemChecked {
   text-decoration: line-through;
 }
-.PlaygroundEditorTheme__listItemUnchecked:before,
-.PlaygroundEditorTheme__listItemChecked:before {
-  content: '';
+.zerocmf-editor-listItemUnchecked:before,
+.zerocmf-editor-listItemChecked:before {
+  content: "";
   width: 16px;
   height: 16px;
   top: 2px;
@@ -419,28 +422,28 @@
   background-size: cover;
   position: absolute;
 }
-.PlaygroundEditorTheme__listItemUnchecked[dir='rtl']:before,
-.PlaygroundEditorTheme__listItemChecked[dir='rtl']:before {
+.zerocmf-editor-listItemUnchecked[dir="rtl"]:before,
+.zerocmf-editor-listItemChecked[dir="rtl"]:before {
   left: auto;
   right: 0;
 }
-.PlaygroundEditorTheme__listItemUnchecked:focus:before,
-.PlaygroundEditorTheme__listItemChecked:focus:before {
+.zerocmf-editor-listItemUnchecked:focus:before,
+.zerocmf-editor-listItemChecked:focus:before {
   box-shadow: 0 0 0 2px #a6cdfe;
   border-radius: 2px;
 }
-.PlaygroundEditorTheme__listItemUnchecked:before {
+.zerocmf-editor-listItemUnchecked:before {
   border: 1px solid #999;
   border-radius: 2px;
 }
-.PlaygroundEditorTheme__listItemChecked:before {
+.zerocmf-editor-listItemChecked:before {
   border: 1px solid rgb(61, 135, 245);
   border-radius: 2px;
   background-color: #3d87f5;
   background-repeat: no-repeat;
 }
-.PlaygroundEditorTheme__listItemChecked:after {
-  content: '';
+.zerocmf-editor-listItemChecked:after {
+  content: "";
   cursor: pointer;
   border-color: #fff;
   border-style: solid;
@@ -454,91 +457,91 @@
   transform: rotate(45deg);
   border-width: 0 2px 2px 0;
 }
-.PlaygroundEditorTheme__nestedListItem {
+.zerocmf-editor-nestedListItem {
   list-style-type: none;
 }
-.PlaygroundEditorTheme__nestedListItem:before,
-.PlaygroundEditorTheme__nestedListItem:after {
+.zerocmf-editor-nestedListItem:before,
+.zerocmf-editor-nestedListItem:after {
   display: none;
 }
-.PlaygroundEditorTheme__tokenComment {
+.zerocmf-editor-tokenComment {
   color: slategray;
 }
-.PlaygroundEditorTheme__tokenPunctuation {
+.zerocmf-editor-tokenPunctuation {
   color: #999;
 }
-.PlaygroundEditorTheme__tokenProperty {
+.zerocmf-editor-tokenProperty {
   color: #905;
 }
-.PlaygroundEditorTheme__tokenSelector {
+.zerocmf-editor-tokenSelector {
   color: #690;
 }
-.PlaygroundEditorTheme__tokenOperator {
+.zerocmf-editor-tokenOperator {
   color: #9a6e3a;
 }
-.PlaygroundEditorTheme__tokenAttr {
+.zerocmf-editor-tokenAttr {
   color: #07a;
 }
-.PlaygroundEditorTheme__tokenVariable {
+.zerocmf-editor-tokenVariable {
   color: #e90;
 }
-.PlaygroundEditorTheme__tokenFunction {
+.zerocmf-editor-tokenFunction {
   color: #dd4a68;
 }
-.PlaygroundEditorTheme__mark {
+.zerocmf-editor-mark {
   background: rgba(255, 212, 0, 0.14);
   border-bottom: 2px solid rgba(255, 212, 0, 0.3);
   padding-bottom: 2px;
 }
-.PlaygroundEditorTheme__markOverlap {
+.zerocmf-editor-markOverlap {
   background: rgba(255, 212, 0, 0.3);
   border-bottom: 2px solid rgba(255, 212, 0, 0.7);
 }
-.PlaygroundEditorTheme__mark.selected {
+.zerocmf-editor-mark.selected {
   background: rgba(255, 212, 0, 0.5);
   border-bottom: 2px solid rgba(255, 212, 0, 1);
 }
-.PlaygroundEditorTheme__markOverlap.selected {
+.zerocmf-editor-markOverlap.selected {
   background: rgba(255, 212, 0, 0.7);
   border-bottom: 2px solid rgba(255, 212, 0, 0.7);
 }
-.PlaygroundEditorTheme__embedBlock {
+.zerocmf-editor-embedBlock {
   user-select: none;
 }
-.PlaygroundEditorTheme__embedBlockFocus {
+.zerocmf-editor-embedBlockFocus {
   outline: 2px solid rgb(60, 132, 244);
 }
-.PlaygroundEditorTheme__layoutContainer {
+.zerocmf-editor-layoutContainer {
   display: grid;
   gap: 10px;
   margin: 10px 0;
 }
-.PlaygroundEditorTheme__layoutItem {
+.zerocmf-editor-layoutItem {
   border: 1px dashed #ddd;
   padding: 8px 16px;
 }
-.PlaygroundEditorTheme__autocomplete {
+.zerocmf-editor-autocomplete {
   color: #ccc;
 }
-.PlaygroundEditorTheme__hr {
+.zerocmf-editor-hr {
   padding: 2px 2px;
   border: none;
   margin: 1em 0;
   cursor: pointer;
 }
-.PlaygroundEditorTheme__hr:after {
-  content: '';
+.zerocmf-editor-hr:after {
+  content: "";
   display: block;
   height: 2px;
   background-color: #ccc;
   line-height: 2px;
 }
-.PlaygroundEditorTheme__hr.selected {
+.zerocmf-editor-hr.selected {
   outline: 2px solid rgb(60, 132, 244);
   user-select: none;
 }
 
-.PlaygroundEditorTheme__specialText {
+.zerocmf-editor-specialText {
   background-color: yellow;
   font-weight: bold;
 }

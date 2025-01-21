@@ -18,7 +18,7 @@ import React, {
 
 export const MIN_ALLOWED_FONT_SIZE = 8;
 export const MAX_ALLOWED_FONT_SIZE = 72;
-export const DEFAULT_FONT_SIZE = 15;
+export const DEFAULT_FONT_SIZE = 16;
 
 const rootTypeToRootName = {
   root: 'Root',
@@ -26,18 +26,18 @@ const rootTypeToRootName = {
 };
 
 export const blockTypeToBlockName = {
-  bullet: 'Bulleted List',
-  check: 'Check List',
-  code: 'Code Block',
-  h1: 'Heading 1',
-  h2: 'Heading 2',
-  h3: 'Heading 3',
-  h4: 'Heading 4',
-  h5: 'Heading 5',
-  h6: 'Heading 6',
-  number: 'Numbered List',
-  paragraph: 'Normal',
-  quote: 'Quote',
+  bullet: '无序列表',
+  check: '待办列表',
+  code: '代码块',
+  h1: '一级标题',
+  h2: '二级标题',
+  h3: '三级标题',
+  h4: '四级标题',
+  h5: '五级标题',
+  h6: '六级标题',
+  number: '有序列表',
+  paragraph: '段落',
+  quote: '引用',
 };
 
 //disable eslint sorting rule for quick reference to toolbar state
@@ -50,7 +50,7 @@ const INITIAL_TOOLBAR_STATE = {
   codeLanguage: '',
   elementFormat: 'left' as ElementFormatType,
   fontColor: '#000',
-  fontFamily: 'Arial',
+  fontFamily: 'auto',
   // Current font size in px
   fontSize: `${DEFAULT_FONT_SIZE}px`,
   // Font size input value - for controlled input
@@ -69,6 +69,7 @@ const INITIAL_TOOLBAR_STATE = {
   isUppercase: false,
   isCapitalize: false,
   rootType: 'root' as keyof typeof rootTypeToRootName,
+  maximize: false,
 };
 
 type ToolbarState = typeof INITIAL_TOOLBAR_STATE;

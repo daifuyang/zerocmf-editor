@@ -175,7 +175,7 @@ function getBaseOptions(editor: LexicalEditor, showModal: ShowModal) {
       icon: <i className="icon table" />,
       keywords: ['table', 'grid', 'spreadsheet', 'rows', 'columns'],
       onSelect: () =>
-        showModal('Insert Table', (onClose) => (
+        showModal('插入表格', (onClose) => (
           <InsertTableDialog activeEditor={editor} onClose={onClose} />
         )),
     }),
@@ -249,7 +249,7 @@ function getBaseOptions(editor: LexicalEditor, showModal: ShowModal) {
       icon: <i className="icon poll" />,
       keywords: ['poll', 'vote'],
       onSelect: () =>
-        showModal('Insert Poll', (onClose) => (
+        showModal('插入投票', (onClose) => (
           <InsertPollDialog activeEditor={editor} onClose={onClose} />
         )),
     }),
@@ -283,7 +283,7 @@ function getBaseOptions(editor: LexicalEditor, showModal: ShowModal) {
       icon: <i className="icon image" />,
       keywords: ['image', 'photo', 'picture', 'file'],
       onSelect: () =>
-        showModal('Insert Image', (onClose) => (
+        showModal('插入图片', (onClose) => (
           <InsertImageDialog activeEditor={editor} onClose={onClose} />
         )),
     }),
@@ -297,7 +297,7 @@ function getBaseOptions(editor: LexicalEditor, showModal: ShowModal) {
       icon: <i className="icon columns" />,
       keywords: ['columns', 'layout', 'grid'],
       onSelect: () =>
-        showModal('Insert Columns Layout', (onClose) => (
+        showModal('插入分栏布局', (onClose) => (
           <InsertLayoutDialog activeEditor={editor} onClose={onClose} />
         )),
     }),

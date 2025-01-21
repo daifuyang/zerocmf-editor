@@ -23,6 +23,7 @@ import {createPortal} from 'react-dom';
 import {CopyButton} from './components/CopyButton';
 import {canBePrettier, PrettierButton} from './components/PrettierButton';
 import {useDebounce} from './utils';
+import { namespace } from '../../appSettings';
 
 const CODE_PADDING = 8;
 
@@ -165,7 +166,7 @@ function getMouseInfo(event: MouseEvent): {
 
   if (isHTMLElement(target)) {
     const codeDOMNode = target.closest<HTMLElement>(
-      'code.PlaygroundEditorTheme__code',
+      `code.${namespace}-code`,
     );
     const isOutside = !(
       codeDOMNode ||

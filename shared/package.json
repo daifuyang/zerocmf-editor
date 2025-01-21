@@ -1,6 +1,19 @@
 {
   "name": "shared",
   "private": "true",
+  "type": "module",
+  "exports": {
+    "./canUseDOM": "./src/canUseDOM.ts",
+    "./caretFromPoint": "./src/caretFromPoint.ts",
+    "./environment": "./src/environment.ts",
+    "./invariant": "./src/invariant.ts",
+    "./normalizeClassNames": "./src/normalizeClassNames.ts",
+    "./react-test-utils": "./src/react-test-utils.ts",
+    "./reactPatches": "./src/reactPatches.ts",
+    "./simpleDiffWithCursor": "./src/simpleDiffWithCursor.ts",
+    "./useLayoutEffect": "./src/useLayoutEffect.ts",
+    "./warnOnlyOnce": "./src/warnOnlyOnce.ts"
+  },
   "keywords": [
     "react",
     "lexical",

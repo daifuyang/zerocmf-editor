@@ -1,3 +1,4 @@
+'use client';
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -257,8 +258,7 @@ export default function ImagesPlugin({
 
 const TRANSPARENT_IMAGE =
   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-const img = document.createElement('img');
-img.src = TRANSPARENT_IMAGE;
+const img = <img src={TRANSPARENT_IMAGE} />
 
 function $onDragStart(event: DragEvent): boolean {
   const node = $getImageNodeInSelection();

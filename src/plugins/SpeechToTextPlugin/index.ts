@@ -1,3 +1,4 @@
+'use client';
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -42,8 +43,8 @@ const VOICE_COMMANDS: Readonly<
   },
 };
 
-export const SUPPORT_SPEECH_RECOGNITION: boolean =
-  'SpeechRecognition' in window || 'webkitSpeechRecognition' in window;
+export const SUPPORT_SPEECH_RECOGNITION: boolean = typeof window !== 'undefined' ?
+  'SpeechRecognition' in window || 'webkitSpeechRecognition' in window : false;
 
 function SpeechToTextPlugin(): null {
   const [editor] = useLexicalComposerContext();

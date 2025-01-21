@@ -1,50 +1,50 @@
-# React + TypeScript + Vite
+# @zerocmf/rich-editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## github: https://github.com/daifuyang/zerocmf-editor
 
-Currently, two official plugins are available:
+基于 [Lexical](https://lexical.dev/) 开发的富文本编辑器，提供轻量、可扩展的编辑体验。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 特性
 
-## Expanding the ESLint configuration
+- **轻量高效**：基于 Lexical 框架，性能优异。
+- **可扩展**：支持插件和自定义节点。
+- **React 集成**：无缝集成到 React 项目中。
+- **丰富的功能**：
+  - 支持粗体、斜体、下划线、删除线等文本样式。
+  - 支持标题、段落、引用、代码块等块级样式。
+  - 支持链接、图片嵌入。
+  - 支持撤销、重做。
+  - 支持 Markdown 快捷键。
+- **TypeScript 支持**：完整的类型定义，开发更高效。
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 安装
 
-- Configure the top-level `parserOptions` property like this:
+使用 npm 或 yarn 安装：
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install @zerocmf/rich-editor
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+或
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+yarn add @zerocmf/rich-editor
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## 使用
+
+```tsx
+import React from 'react';
+import RichEditor from '@zerocmf/rich-editor';
+
+const App: React.FC = (props) => {
+    const { editable = true, value, onChange } = props;
+  return (
+    <div>
+      <RichEditor editable={editable} value={value} onChange={onChange} />
+    </div>
+  );
+};
+
+export default App;
 ```

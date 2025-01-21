@@ -1,4 +1,5 @@
 /**
+import { names } from '../node_modules/.vite/deps_temp_77544cd6/prettier_parser-typescript';
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
  * This source code is licensed under the MIT license found in the
@@ -6,14 +7,10 @@
  *
  */
 
-const hostName = window.location.hostname;
-export const isDevPlayground: boolean =
-  hostName !== 'playground.lexical.dev' &&
-  hostName !== 'lexical-playground.vercel.app';
 
 export const DEFAULT_SETTINGS = {
   disableBeforeInput: false,
-  emptyEditor: isDevPlayground,
+  emptyEditor: true,
   hasLinkAttributes: false,
   isAutocomplete: false,
   isCharLimit: false,
@@ -42,3 +39,5 @@ export const INITIAL_SETTINGS: Record<SettingName, boolean> = {
 export type SettingName = keyof typeof DEFAULT_SETTINGS;
 
 export type Settings = typeof INITIAL_SETTINGS;
+
+export const namespace = "zerocmf-editor";

@@ -21,11 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
-    "baseUrl": "./",
-    "paths": {
-      "shared/*": ["shared/src/*"], // 别名 @shared 映射到 shared/src
-    }
   },
   "include": ["src"]
 }

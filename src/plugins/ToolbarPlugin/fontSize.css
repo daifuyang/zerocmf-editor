@@ -12,10 +12,10 @@
   color: #777;
   border-radius: 5px;
   border-color: grey;
-  height: 15px;
+  height: 24px;
   padding: 2px 4px;
+  min-width: 28px;
   text-align: center;
-  width: 20px;
   align-self: center;
 }
 

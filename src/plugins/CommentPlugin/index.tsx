@@ -146,7 +146,7 @@ function PlainTextEditor({
   onEscape,
   onChange,
   editorRef,
-  placeholder = 'Type a comment...',
+  placeholder = '输入评论...',
 }: {
   autoFocus?: boolean;
   className?: string;
@@ -348,13 +348,13 @@ function CommentInputBox({
         <Button
           onClick={cancelAddComment}
           className="CommentPlugin_CommentInputBox_Button">
-          Cancel
+          取消
         </Button>
         <Button
           onClick={submitComment}
           disabled={!canSubmit}
           className="CommentPlugin_CommentInputBox_Button primary">
-          Comment
+          评论
         </Button>
       </div>
     </div>
@@ -432,20 +432,20 @@ function ShowDeleteCommentOrThreadDialog({
 }): JSX.Element {
   return (
     <>
-      Are you sure you want to delete this {commentOrThread.type}?
+      您确定删除这个{commentOrThread.type}吗?
       <div className="Modal__content">
         <Button
           onClick={() => {
             deleteCommentOrThread(commentOrThread, thread);
             onClose();
           }}>
-          Delete
+          删除
         </Button>{' '}
         <Button
           onClick={() => {
             onClose();
           }}>
-          Cancel
+          取消
         </Button>
       </div>
     </>
@@ -636,7 +636,7 @@ function CommentsPanelList({
                 <CommentsComposer
                   submitAddComment={submitAddComment}
                   thread={commentOrThread}
-                  placeholder="Reply to comment..."
+                  placeholder="回复评论..."
                 />
               </div>
             </li>

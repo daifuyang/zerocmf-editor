@@ -9,12 +9,21 @@ import PlaygroundNodes from "./nodes/PlaygroundNodes";
 import { TableContext } from "./plugins/TablePlugin";
 import { parseAllowedFontSize } from "./plugins/ToolbarPlugin/fontSize";
 // import Settings from "./Settings";
-import PlaygroundEditorTheme from "./themes/PlaygroundEditorTheme";
+import ZerocmfEditorTheme from "./themes/ZerocmfEditorTheme";
 import { parseAllowedColor } from "./ui/ColorPicker";
-import { FlashMessageContext } from "./context/FlashMessageContext";
-import { SettingsContext } from "./context/SettingsContext";
+import { namespace } from "./appSettings";
+// import { FlashMessageContext } from "./context/FlashMessageContext";
+// import { SettingsContext } from "./context/SettingsContext";
 import "./App.css";
-function App(): JSX.Element {
+
+
+interface Props {
+  editable?: boolean;
+  value?: string;
+  onChange?: (value: unknown) => void;
+}
+function App(props: Props): JSX.Element {
+  const { editable = true, value, onChange } = props;
   function getExtraStyles(element: HTMLElement): string {
     // Parse styles from pasted input, but only if they match exactly the
     // sort of styles that would be produced by exportDOM
@@ -33,7 +42,6 @@ function App(): JSX.Element {
     }
     return extraStyles;
   }
-
   function buildImportMap(): DOMConversionMap {
     const importMap: DOMConversionMap = {};
 
@@ -81,32 +89,33 @@ function App(): JSX.Element {
   }
 
   const initialConfig = {
+    editable,
     html: { import: buildImportMap() },
-    namespace: "Playground",
+    namespace,
     nodes: [...PlaygroundNodes],
     onError: (error: Error) => {
       throw error;
     },
-    theme: PlaygroundEditorTheme
+    theme: ZerocmfEditorTheme
   };
 
   return (
-    <SettingsContext>
-      <FlashMessageContext>
-        <LexicalComposer initialConfig={initialConfig}>
-          <SharedHistoryContext>
-            <TableContext>
-              <ToolbarContext>
-                <div className="editor-shell">
-                  <Editor />
-                </div>
-                {/* <Settings /> */}
-              </ToolbarContext>
-            </TableContext>
-          </SharedHistoryContext>
-        </LexicalComposer>
-      </FlashMessageContext>
-    </SettingsContext>
+    <>
+      {/* <SettingsContext> */}
+      {/* <FlashMessageContext> */}
+      <LexicalComposer initialConfig={initialConfig}>
+        <SharedHistoryContext>
+          <TableContext>
+            <ToolbarContext>
+              <Editor value={value} onChange={onChange} />
+              {/* <Settings /> */}
+            </ToolbarContext>
+          </TableContext>
+        </SharedHistoryContext>
+      </LexicalComposer>
+      {/* </FlashMessageContext> */}
+      {/* </SettingsContext> */}
+    </>
   );
 }
 

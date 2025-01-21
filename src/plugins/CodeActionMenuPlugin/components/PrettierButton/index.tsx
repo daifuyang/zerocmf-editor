@@ -144,7 +144,9 @@ export function PrettierButton({lang, editor, getCodeDOMNode}: Props) {
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        aria-label="prettier">
+        aria-label="prettier"
+        type="button"
+        >
         {syntaxError ? (
           <i className="format prettier-error" />
         ) : (
