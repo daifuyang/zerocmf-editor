@@ -9,8 +9,6 @@ const url = require("postcss-url");
 const clear = require("rollup-plugin-clear");
 const path = require("path");
 
-const jsx = require("acorn-jsx");
-
 const currentDir = process.cwd();
 const replacement = path.resolve(currentDir, "shared/src");
 
@@ -36,7 +34,7 @@ export default {
       ]
     }),
     typescript({
-      tsconfig: "./tsconfig.build.json",
+      tsconfig: "./tsconfig.app.json",
       include: ["shared/**/*.ts", "src/**/*.ts", "src/**/*.tsx"], // Include TypeScript files
       exclude: ["node_modules/**"], // Exclude node_modules
     }),
@@ -56,7 +54,6 @@ export default {
       // because @rollup/plugin-commonjs does not analyze it correctly
       strictRequires: [/\/node_modules\/(react-dom|react)\/[^/]\.js$/]
     }),
-    commonjs(), // 将 CommonJS 模块转换为 ES 模块
     terser(), // 压缩代码
     clear({ targets: ["dist", "es", "lib"] }) // 清理 dist 目录
   ]
