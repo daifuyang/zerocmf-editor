@@ -9,27 +9,21 @@ const url = require("postcss-url");
 const clear = require("rollup-plugin-clear");
 const path = require("path");
 
+const jsx = require("acorn-jsx");
+
 const currentDir = process.cwd();
 const replacement = path.resolve(currentDir, "shared/src");
 
 export default {
   input: "src/index.ts",
   output: [
-   /*  {
+    /*  {
       file: "dist/index.min.js",
       format: "iife",
       name: "zerocmfEditor" // 全局变量名（UMD 格式需要）
     }, */
-    {
-      dir: "es",
-      format: "es",
-      sourcemap: true
-    },
-    {
-      dir: "lib",
-      format: "cjs",
-      sourcemap: true
-    }
+    { dir: "es", format: "es", sourcemap: true },
+    { dir: "lib", format: "cjs", sourcemap: true }
   ],
   plugins: [
     image(),
@@ -44,7 +38,7 @@ export default {
     typescript({
       tsconfig: "./tsconfig.build.json",
       include: ["shared/**/*.ts", "src/**/*.ts", "src/**/*.tsx"], // Include TypeScript files
-      exclude: ["node_modules/**"] // Exclude node_modules
+      exclude: ["node_modules/**"], // Exclude node_modules
     }),
     postcss({
       extract: true, // Extract CSS to a separate file

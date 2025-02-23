@@ -14,7 +14,6 @@ import {
 } from "@lexical/code";
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from "@lexical/link";
 import { $isListNode, ListNode } from "@lexical/list";
-import { INSERT_EMBED_COMMAND } from "@lexical/react/LexicalAutoEmbedPlugin";
 import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontalRuleNode";
 import { $isHeadingNode } from "@lexical/rich-text";
 import {
@@ -31,7 +30,6 @@ import {
 } from "@lexical/utils";
 import {
   $getNodeByKey,
-  $getRoot,
   $getSelection,
   $isElementNode,
   $isRangeSelection,
@@ -51,26 +49,24 @@ import {
   UNDO_COMMAND
 } from "lexical";
 import { Dispatch, useCallback, useEffect, useState } from "react";
-import * as React from "react";
 import { IS_APPLE } from "shared/environment";
 
 import { blockTypeToBlockName, useToolbarState } from "../../context/ToolbarContext";
 import useModal from "../../hooks/useModal";
 import catTypingGif from "../../images/cat-typing.gif";
-import { $createStickyNode } from "../../nodes/StickyNode";
 import DropDown, { DropDownItem } from "../../ui/DropDown";
 import DropdownColorPicker from "../../ui/DropdownColorPicker";
 import { getSelectedNode } from "../../utils/getSelectedNode";
 import { sanitizeUrl } from "../../utils/url";
-import { EmbedConfigs } from "../AutoEmbedPlugin";
+
 import { INSERT_COLLAPSIBLE_COMMAND } from "../CollapsiblePlugin";
 import { InsertEquationDialog } from "../EquationsPlugin";
-import { INSERT_EXCALIDRAW_COMMAND } from "../ExcalidrawPlugin";
+
 import { INSERT_IMAGE_COMMAND, InsertImageDialog, InsertImagePayload } from "../ImagesPlugin";
 import { InsertInlineImageDialog } from "../InlineImagePlugin";
 import InsertLayoutDialog from "../LayoutPlugin/InsertLayoutDialog";
 import { INSERT_PAGE_BREAK } from "../PageBreakPlugin";
-import { InsertPollDialog } from "../PollPlugin";
+
 import { SHORTCUTS } from "../ShortcutsPlugin/shortcuts";
 import { InsertTableDialog } from "../TablePlugin";
 import FontSize from "./fontSize";
@@ -85,10 +81,8 @@ import {
   formatQuote
 } from "./utils";
 
-const rootTypeToRootName = {
-  root: "Root",
-  table: "Table"
-};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const rootTypeToRootName = { root: "Root", table: "Table" };
 
 function getCodeLanguageOptions(): [string, string][] {
   const options: [string, string][] = [];
@@ -151,42 +145,14 @@ const FONT_SIZE_OPTIONS: [string, string][] = [
 ];
 
 const ELEMENT_FORMAT_OPTIONS: {
-  [key in Exclude<ElementFormatType, "">]: {
-    icon: string;
-    iconRTL: string;
-    name: string;
-  };
+  [key in Exclude<ElementFormatType, "">]: { icon: string; iconRTL: string; name: string };
 } = {
-  center: {
-    icon: "center-align",
-    iconRTL: "center-align",
-    name: "居中对齐"
-  },
-  end: {
-    icon: "right-align",
-    iconRTL: "left-align",
-    name: "右对齐"
-  },
-  justify: {
-    icon: "justify-align",
-    iconRTL: "justify-align",
-    name: "两端对齐"
-  },
-  left: {
-    icon: "left-align",
-    iconRTL: "left-align",
-    name: "左对齐"
-  },
-  right: {
-    icon: "right-align",
-    iconRTL: "right-align",
-    name: "右对齐"
-  },
-  start: {
-    icon: "left-align",
-    iconRTL: "right-align",
-    name: "左对齐"
-  }
+  center: { icon: "center-align", iconRTL: "center-align", name: "居中对齐" },
+  end: { icon: "right-align", iconRTL: "left-align", name: "右对齐" },
+  justify: { icon: "justify-align", iconRTL: "justify-align", name: "两端对齐" },
+  left: { icon: "left-align", iconRTL: "left-align", name: "左对齐" },
+  right: { icon: "right-align", iconRTL: "right-align", name: "右对齐" },
+  start: { icon: "left-align", iconRTL: "right-align", name: "左对齐" }
 };
 
 function dropDownActiveClass(active: boolean) {
@@ -200,7 +166,6 @@ function dropDownActiveClass(active: boolean) {
 function BlockFormatDropDown({
   editor,
   blockType,
-  rootType,
   disabled = false
 }: {
   blockType: keyof typeof blockTypeToBlockName;
@@ -330,9 +295,7 @@ function FontDropDown({
       editor.update(() => {
         const selection = $getSelection();
         if (selection !== null) {
-          $patchStyleText(selection, {
-            [style]: option
-          });
+          $patchStyleText(selection, { [style]: option });
         }
       });
     },
@@ -1036,10 +999,7 @@ export default function ToolbarPlugin({
                 </DropDownItem>
                 <DropDownItem
                   onClick={() =>
-                    insertGifOnClick({
-                      altText: "Cat typing on a laptop",
-                      src: catTypingGif
-                    })
+                    insertGifOnClick({ altText: "Cat typing on a laptop", src: catTypingGif })
                   }
                   className="item"
                 >

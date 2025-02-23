@@ -14,43 +14,39 @@ import {
   ElementNode,
   LexicalEditor,
   LexicalNode,
-  SerializedElementNode,
-} from 'lexical';
-import {IS_CHROME} from 'shared/environment';
-import invariant from 'shared/invariant';
+  SerializedElementNode
+} from "lexical";
+import { IS_CHROME } from "shared/environment";
+import invariant from "shared/invariant";
 
-import {$isCollapsibleContainerNode} from './CollapsibleContainerNode';
-import {domOnBeforeMatch, setDomHiddenUntilFound} from './CollapsibleUtils';
+import { $isCollapsibleContainerNode } from "./CollapsibleContainerNode";
+import { domOnBeforeMatch, setDomHiddenUntilFound } from "./CollapsibleUtils";
 
 type SerializedCollapsibleContentNode = SerializedElementNode;
 
-export function $convertCollapsibleContentElement(
-  domNode: HTMLElement,
-): DOMConversionOutput | null {
+export function $convertCollapsibleContentElement(): DOMConversionOutput | null {
   const node = $createCollapsibleContentNode();
-  return {
-    node,
-  };
+  return { node };
 }
 
 export class CollapsibleContentNode extends ElementNode {
   static getType(): string {
-    return 'collapsible-content';
+    return "collapsible-content";
   }
 
   static clone(node: CollapsibleContentNode): CollapsibleContentNode {
     return new CollapsibleContentNode(node.__key);
   }
 
-  createDOM(config: EditorConfig, editor: LexicalEditor): HTMLElement {
-    const dom = document.createElement('div');
-    dom.classList.add('Collapsible__content');
+  createDOM(_: EditorConfig, editor: LexicalEditor): HTMLElement {
+    const dom = document.createElement("div");
+    dom.classList.add("Collapsible__content");
     if (IS_CHROME) {
       editor.getEditorState().read(() => {
         const containerNode = this.getParentOrThrow();
         invariant(
           $isCollapsibleContainerNode(containerNode),
-          'Expected parent node to be a CollapsibleContainerNode',
+          "Expected parent node to be a CollapsibleContainerNode"
         );
         if (!containerNode.__open) {
           setDomHiddenUntilFound(dom);
@@ -61,7 +57,7 @@ export class CollapsibleContentNode extends ElementNode {
           const containerNode = this.getParentOrThrow().getLatest();
           invariant(
             $isCollapsibleContainerNode(containerNode),
-            'Expected parent node to be a CollapsibleContainerNode',
+            "Expected parent node to be a CollapsibleContainerNode"
           );
           if (!containerNode.__open) {
             containerNode.toggleOpen();
@@ -72,34 +68,29 @@ export class CollapsibleContentNode extends ElementNode {
     return dom;
   }
 
-  updateDOM(prevNode: this, dom: HTMLElement): boolean {
+  updateDOM(): boolean {
     return false;
   }
 
   static importDOM(): DOMConversionMap | null {
     return {
       div: (domNode: HTMLElement) => {
-        if (!domNode.hasAttribute('data-lexical-collapsible-content')) {
+        if (!domNode.hasAttribute("data-lexical-collapsible-content")) {
           return null;
         }
-        return {
-          conversion: $convertCollapsibleContentElement,
-          priority: 2,
-        };
-      },
+        return { conversion: $convertCollapsibleContentElement, priority: 2 };
+      }
     };
   }
 
   exportDOM(): DOMExportOutput {
-    const element = document.createElement('div');
-    element.classList.add('Collapsible__content');
-    element.setAttribute('data-lexical-collapsible-content', 'true');
-    return {element};
+    const element = document.createElement("div");
+    element.classList.add("Collapsible__content");
+    element.setAttribute("data-lexical-collapsible-content", "true");
+    return { element };
   }
 
-  static importJSON(
-    serializedNode: SerializedCollapsibleContentNode,
-  ): CollapsibleContentNode {
+  static importJSON(serializedNode: SerializedCollapsibleContentNode): CollapsibleContentNode {
     return $createCollapsibleContentNode().updateFromJSON(serializedNode);
   }
 
@@ -113,7 +104,7 @@ export function $createCollapsibleContentNode(): CollapsibleContentNode {
 }
 
 export function $isCollapsibleContentNode(
-  node: LexicalNode | null | undefined,
+  node: LexicalNode | null | undefined
 ): node is CollapsibleContentNode {
   return node instanceof CollapsibleContentNode;
 }

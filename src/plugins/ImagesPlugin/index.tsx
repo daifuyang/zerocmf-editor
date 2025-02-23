@@ -29,7 +29,7 @@ import {
   LexicalEditor,
 } from 'lexical';
 import {useEffect, useRef, useState} from 'react';
-import * as React from 'react';
+
 
 import landscapeImage from '../../images/landscape.jpg';
 import yellowFlowerImage from '../../images/yellow-flower.jpg';
@@ -258,7 +258,7 @@ export default function ImagesPlugin({
 
 const TRANSPARENT_IMAGE =
   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-const img = <img src={TRANSPARENT_IMAGE} />
+const img = <img src={TRANSPARENT_IMAGE} /> as unknown as Element
 
 function $onDragStart(event: DragEvent): boolean {
   const node = $getImageNodeInSelection();

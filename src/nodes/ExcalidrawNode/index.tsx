@@ -19,12 +19,12 @@ import type {
 } from 'lexical';
 
 import {DecoratorNode} from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
+
+import {lazy, Suspense} from 'react';
 
 type Dimension = number | 'inherit';
 
-const ExcalidrawComponent = React.lazy(() => import('./ExcalidrawComponent'));
+const ExcalidrawComponent = lazy(() => import('./ExcalidrawComponent'));
 
 export type SerializedExcalidrawNode = Spread<
   {
@@ -177,7 +177,7 @@ export class ExcalidrawNode extends DecoratorNode<JSX.Element> {
     self.__height = height;
   }
 
-  decorate(editor: LexicalEditor, config: EditorConfig): JSX.Element {
+  decorate(): JSX.Element {
     return (
       <Suspense fallback={null}>
         <ExcalidrawComponent

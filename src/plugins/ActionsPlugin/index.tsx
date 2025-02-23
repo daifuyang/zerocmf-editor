@@ -32,7 +32,6 @@ import {
 import { useCallback, useEffect, useState } from "react";
 
 import { INITIAL_SETTINGS } from "../../appSettings";
-import useFlashMessage from "../../hooks/useFlashMessage";
 import useModal from "../../hooks/useModal";
 import Button from "../../ui/Button";
 import { docFromHash, docToHash } from "../../utils/docSerialization";
@@ -84,7 +83,6 @@ async function shareDoc(doc: SerializedDocument): Promise<void> {
 }
 
 export default function ActionsPlugin({
-  isRichText,
   shouldPreserveNewLinesInMarkdown
 }: {
   isRichText: boolean;
@@ -96,7 +94,6 @@ export default function ActionsPlugin({
   const [connected, setConnected] = useState(false);
   const [isEditorEmpty, setIsEditorEmpty] = useState(true);
   const [modal, showModal] = useModal();
-  const showFlashMessage = useFlashMessage();
   const { isCollabActive } = useCollaborationContext();
   useEffect(() => {
     if (INITIAL_SETTINGS.isCollab) {
@@ -127,7 +124,7 @@ export default function ActionsPlugin({
   }, [editor]);
 
   useEffect(() => {
-    return editor.registerUpdateListener(({ dirtyElements, prevEditorState, tags }) => {
+    return editor.registerUpdateListener(({ dirtyElements, tags }) => {
       // If we are in read only mode, send the editor state
       // to server and ask for validation if possible.
       if (
@@ -232,8 +229,8 @@ export default function ActionsPlugin({
               source: "Playground"
             })
           ).then(
-            () => showFlashMessage("URL copied to clipboard"),
-            () => showFlashMessage("URL could not be copied to clipboard")
+            () => console.log("URL copied to clipboard"),
+            () => console.log("URL could not be copied to clipboard")
           )
         }
         title="Share"

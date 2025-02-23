@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * Copyright (c) Meta Platforms, Inc. and affiliates.
  *
@@ -20,6 +21,7 @@ export default (() => {
       try {
         const value = JSON.parse(urlSearchParams.get(param) ?? 'true');
         INITIAL_SETTINGS[param as keyof Settings] = Boolean(value);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         console.warn(`Unable to parse query parameter "${param}"`);
       }
@@ -27,12 +29,10 @@ export default (() => {
   }
 
   if (INITIAL_SETTINGS.disableBeforeInput) {
-    // @ts-expect-error
-    delete window.InputEvent.prototype.getTargetRanges;
+    delete (window as any).InputEvent.prototype.getTargetRanges;
   }
 
-  // @ts-ignore
-  window.EXCALIDRAW_ASSET_PATH = process.env.EXCALIDRAW_ASSET_PATH;
+  (window as any).EXCALIDRAW_ASSET_PATH = process.env.EXCALIDRAW_ASSET_PATH;
 
   return INITIAL_SETTINGS;
 })();

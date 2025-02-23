@@ -32,7 +32,7 @@ import {
   LexicalCommand,
   LexicalEditor,
 } from 'lexical';
-import * as React from 'react';
+
 import {useEffect, useRef, useState} from 'react';
 
 import {
@@ -211,7 +211,7 @@ export default function InlineImagePlugin(): JSX.Element | null {
 
 const TRANSPARENT_IMAGE =
   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-const img = <img src={TRANSPARENT_IMAGE} />
+const img = <img src={TRANSPARENT_IMAGE} /> as unknown as Element
 
 function $onDragStart(event: DragEvent): boolean {
   const node = $getImageNodeInSelection();

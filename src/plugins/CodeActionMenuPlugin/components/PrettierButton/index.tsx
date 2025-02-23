@@ -19,7 +19,7 @@ interface Props {
 }
 
 const PRETTIER_PARSER_MODULES = {
-  css: [() => import('prettier/parser-postcss')],
+/*   css: [() => import('prettier/parser-postcss')],
   html: [() => import('prettier/parser-html')],
   js: [
     () => import('prettier/parser-babel'),
@@ -29,15 +29,17 @@ const PRETTIER_PARSER_MODULES = {
   typescript: [
     () => import('prettier/parser-typescript'),
     () => import('prettier/plugins/estree'),
-  ],
+  ], */
 } as const;
 
 type LanguagesType = keyof typeof PRETTIER_PARSER_MODULES;
 
 async function loadPrettierParserByLang(lang: string) {
-  const dynamicImports = PRETTIER_PARSER_MODULES[lang as LanguagesType];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dynamicImports = PRETTIER_PARSER_MODULES[lang as LanguagesType] as any;
   const modules = await Promise.all(
-    dynamicImports.map((dynamicImport) => dynamicImport()),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    dynamicImports.map((dynamicImport: () => any) => dynamicImport()),
   );
   return modules;
 }
@@ -98,7 +100,8 @@ export function PrettierButton({lang, editor, getCodeDOMNode}: Props) {
       const options = getPrettierOptions(lang);
       const prettierParsers = await loadPrettierParserByLang(lang);
       options.plugins = prettierParsers.map(
-        (parser) => parser.default || parser,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (parser: any) => parser.default || parser,
       );
       const formattedCode = await format(content, options);
 

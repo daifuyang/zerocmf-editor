@@ -16,8 +16,8 @@ import {
   ExcalidrawInitialDataState,
 } from '@excalidraw/excalidraw/types/types';
 import {isDOMNode} from 'lexical';
-import * as React from 'react';
-import {ReactPortal, useEffect, useLayoutEffect, useRef, useState} from 'react';
+
+import {ReactPortal, useCallback, useEffect, useLayoutEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 
 import Button from './Button';
@@ -63,8 +63,8 @@ type Props = {
 
 export const useCallbackRefState = () => {
   const [refValue, setRefValue] =
-    React.useState<ExcalidrawImperativeAPI | null>(null);
-  const refCallback = React.useCallback(
+    useState<ExcalidrawImperativeAPI | null>(null);
+  const refCallback = useCallback(
     (value: ExcalidrawImperativeAPI | null) => setRefValue(value),
     [],
   );

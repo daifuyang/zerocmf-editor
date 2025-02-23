@@ -8,14 +8,10 @@ import Editor from "./Editor";
 import PlaygroundNodes from "./nodes/PlaygroundNodes";
 import { TableContext } from "./plugins/TablePlugin";
 import { parseAllowedFontSize } from "./plugins/ToolbarPlugin/fontSize";
-// import Settings from "./Settings";
 import ZerocmfEditorTheme from "./themes/ZerocmfEditorTheme";
 import { parseAllowedColor } from "./ui/ColorPicker";
 import { namespace } from "./appSettings";
-// import { FlashMessageContext } from "./context/FlashMessageContext";
-// import { SettingsContext } from "./context/SettingsContext";
 import "./App.css";
-
 
 interface Props {
   editable?: boolean;

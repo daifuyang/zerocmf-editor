@@ -99,16 +99,18 @@ interface DynamicComponentsProps {
   tag?: string;
   children?: ReactNode;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
 function DynamicComponents(props: DynamicComponentsProps) {
-  const { node, children, className } = props;
+  const { node, children, className = '' } = props;
   const { format, type, tag } = node;
 
   console.log('node', node)
   // 获取节点对应的 HTML 标签
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let ComponentProps: any = {};
 
   let Component: keyof JSX.IntrinsicElements = "span"; // 默认使用 span 标签
@@ -147,6 +149,7 @@ function DynamicComponents(props: DynamicComponentsProps) {
 }
 
 // 递归生成 React 组件
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function generateReactComponents(node: Record<string, any>): ReactNode {
   if (typeof node === "object" && node !== null) {
     const { type, tag, format, text } = node;
@@ -183,6 +186,7 @@ function generateReactComponents(node: Record<string, any>): ReactNode {
         {/* 递归处理子节点 */}
         {Object.keys(node).map((key) => {
           if (Array.isArray(node[key])) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return node[key].map((child: any, index: number) => (
               <React.Fragment key={index}>{generateReactComponents(child)}</React.Fragment>
             ));

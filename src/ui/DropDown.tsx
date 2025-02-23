@@ -9,15 +9,10 @@
 import { isDOMNode } from "lexical";
 import * as React from "react";
 import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 
-type DropDownContextType = {
-  registerItem: (ref: React.RefObject<HTMLButtonElement>) => void;
-};
+type DropDownContextType = { registerItem: (ref: React.RefObject<HTMLButtonElement>) => void };
 
 const DropDownContext = React.createContext<DropDownContextType | null>(null);
-
-const dropDownPadding = 4;
 
 export function DropDownItem({
   children,
@@ -103,12 +98,7 @@ function DropDownItems({
     }
   };
 
-  const contextValue = useMemo(
-    () => ({
-      registerItem
-    }),
-    [registerItem]
-  );
+  const contextValue = useMemo(() => ({ registerItem }), [registerItem]);
 
   useEffect(() => {
     if (items && !highlightedItem) {
@@ -237,7 +227,7 @@ export default function DropDown({
         </DropDownItems>
       )}
 
-{/*       {showDropDown &&
+      {/*       {showDropDown &&
         createPortal(
           <DropDownItems dropDownRef={dropDownRef} onClose={handleClose}>
             {children}

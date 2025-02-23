@@ -32,7 +32,7 @@ import {
   TextNode,
 } from 'lexical';
 import {useCallback, useMemo, useState} from 'react';
-import * as React from 'react';
+
 import * as ReactDOM from 'react-dom';
 
 import useModal from '../../hooks/useModal';
@@ -254,7 +254,8 @@ function getBaseOptions(editor: LexicalEditor, showModal: ShowModal) {
         )),
     }),
     ...EmbedConfigs.map(
-      (embedConfig) =>
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (embedConfig: any) =>
         new ComponentPickerOption(`Embed ${embedConfig.contentName}`, {
           icon: embedConfig.icon,
           keywords: [...embedConfig.keywords, 'embed'],

@@ -9,7 +9,6 @@
 import type {
   DOMConversionMap,
   DOMConversionOutput,
-  EditorConfig,
   LexicalNode,
   NodeKey,
   SerializedLexicalNode,
@@ -18,10 +17,10 @@ import type {
 
 import katex from 'katex';
 import {$applyNodeReplacement, DecoratorNode, DOMExportOutput} from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
 
-const EquationComponent = React.lazy(() => import('./EquationComponent'));
+import {lazy, Suspense} from 'react';
+
+const EquationComponent = lazy(() => import('./EquationComponent'));
 
 export type SerializedEquationNode = Spread<
   {
@@ -79,7 +78,7 @@ export class EquationNode extends DecoratorNode<JSX.Element> {
     };
   }
 
-  createDOM(_config: EditorConfig): HTMLElement {
+  createDOM(): HTMLElement {
     const element = document.createElement(this.__inline ? 'span' : 'div');
     // EquationNodes should implement `user-action:none` in their CSS to avoid issues with deletion on Android.
     element.className = 'editor-equation';

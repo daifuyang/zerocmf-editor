@@ -21,10 +21,10 @@ import type {
 } from 'lexical';
 
 import {$applyNodeReplacement, createEditor, DecoratorNode} from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
 
-const ImageComponent = React.lazy(() => import('./ImageComponent'));
+import {lazy, Suspense} from 'react';
+
+const ImageComponent = lazy(() => import('./ImageComponent'));
 
 export interface ImagePayload {
   altText: string;
@@ -134,7 +134,7 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
 
   static importDOM(): DOMConversionMap | null {
     return {
-      img: (node: Node) => ({
+      img: () => ({
         conversion: $convertImageElement,
         priority: 0,
       }),

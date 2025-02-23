@@ -7,7 +7,6 @@
  */
 
 import type {
-  EditorConfig,
   LexicalEditor,
   LexicalNode,
   LexicalUpdateJSON,
@@ -18,11 +17,11 @@ import type {
 } from 'lexical';
 
 import {$setSelection, createEditor, DecoratorNode} from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
+
+import {lazy, Suspense} from 'react';
 import {createPortal} from 'react-dom';
 
-const StickyComponent = React.lazy(() => import('./StickyComponent'));
+const StickyComponent = lazy(() => import('./StickyComponent'));
 
 type StickyNoteColor = 'pink' | 'yellow';
 
@@ -100,7 +99,7 @@ export class StickyNode extends DecoratorNode<JSX.Element> {
     };
   }
 
-  createDOM(config: EditorConfig): HTMLElement {
+  createDOM(): HTMLElement {
     const div = document.createElement('div');
     div.style.display = 'contents';
     return div;
@@ -122,7 +121,7 @@ export class StickyNode extends DecoratorNode<JSX.Element> {
     writable.__color = writable.__color === 'pink' ? 'yellow' : 'pink';
   }
 
-  decorate(editor: LexicalEditor, config: EditorConfig): JSX.Element {
+  decorate(): JSX.Element {
     return createPortal(
       <Suspense fallback={null}>
         <StickyComponent

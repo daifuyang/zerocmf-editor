@@ -26,10 +26,10 @@ import {
   DecoratorNode,
   isHTMLElement,
 } from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
 
-const InlineImageComponent = React.lazy(() => import('./InlineImageComponent'));
+import {lazy, Suspense} from 'react';
+
+const InlineImageComponent = lazy(() => import('./InlineImageComponent'));
 
 export type Position = 'left' | 'right' | 'full' | undefined;
 
@@ -127,7 +127,7 @@ export class InlineImageNode extends DecoratorNode<JSX.Element> {
 
   static importDOM(): DOMConversionMap | null {
     return {
-      img: (node: Node) => ({
+      img: () => ({
         conversion: $convertInlineImageElement,
         priority: 0,
       }),

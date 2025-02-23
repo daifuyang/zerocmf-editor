@@ -9,7 +9,7 @@
 import './ContentEditable.css';
 
 import {ContentEditable} from '@lexical/react/LexicalContentEditable';
-import * as React from 'react';
+
 
 import { useLexicalEditable } from "@lexical/react/useLexicalEditable";
 

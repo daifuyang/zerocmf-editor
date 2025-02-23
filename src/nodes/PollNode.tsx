@@ -16,8 +16,8 @@ import {
   SerializedLexicalNode,
   Spread,
 } from 'lexical';
-import * as React from 'react';
-import {Suspense} from 'react';
+
+import {lazy, Suspense} from 'react';
 
 export type Options = ReadonlyArray<Option>;
 
@@ -27,7 +27,7 @@ export type Option = Readonly<{
   votes: Array<number>;
 }>;
 
-const PollComponent = React.lazy(() => import('./PollComponent'));
+const PollComponent = lazy(() => import('./PollComponent'));
 
 function createUID(): string {
   return Math.random()

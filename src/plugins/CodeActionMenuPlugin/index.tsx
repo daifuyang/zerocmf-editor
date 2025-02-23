@@ -17,7 +17,7 @@ import {
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {$getNearestNodeFromDOMNode, isHTMLElement} from 'lexical';
 import {useEffect, useRef, useState} from 'react';
-import * as React from 'react';
+
 import {createPortal} from 'react-dom';
 
 import {CopyButton} from './components/CopyButton';

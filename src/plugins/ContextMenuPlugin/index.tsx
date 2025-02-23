@@ -21,8 +21,8 @@ import {
   type LexicalNode,
   PASTE_COMMAND,
 } from 'lexical';
-import {useCallback, useMemo} from 'react';
-import * as React from 'react';
+import {useCallback, useMemo, useState} from 'react';
+
 import * as ReactDOM from 'react-dom';
 
 function ContextMenuItem({
@@ -108,18 +108,18 @@ export default function ContextMenuPlugin(): JSX.Element {
   const defaultOptions = useMemo(() => {
     return [
       new ContextMenuOption(`Copy`, {
-        onSelect: (_node) => {
+        onSelect: () => {
           editor.dispatchCommand(COPY_COMMAND, null);
         },
       }),
       new ContextMenuOption(`Cut`, {
-        onSelect: (_node) => {
+        onSelect: () => {
           editor.dispatchCommand(CUT_COMMAND, null);
         },
       }),
       new ContextMenuOption(`Paste`, {
-        onSelect: (_node) => {
-          navigator.clipboard.read().then(async function (...args) {
+        onSelect: () => {
+          navigator.clipboard.read().then(async function () {
             const data = new DataTransfer();
 
             const items = await navigator.clipboard.read();
@@ -148,8 +148,8 @@ export default function ContextMenuPlugin(): JSX.Element {
         },
       }),
       new ContextMenuOption(`Paste as Plain Text`, {
-        onSelect: (_node) => {
-          navigator.clipboard.read().then(async function (...args) {
+        onSelect: () => {
+          navigator.clipboard.read().then(async function () {
             const permission = await navigator.permissions.query({
               // @ts-expect-error These types are incorrect.
               name: 'clipboard-read',
@@ -172,7 +172,7 @@ export default function ContextMenuPlugin(): JSX.Element {
         },
       }),
       new ContextMenuOption(`Delete Node`, {
-        onSelect: (_node) => {
+        onSelect: () => {
           const selection = $getSelection();
           if ($isRangeSelection(selection)) {
             const currentNode = selection.anchor.getNode();
@@ -187,7 +187,7 @@ export default function ContextMenuPlugin(): JSX.Element {
     ];
   }, [editor]);
 
-  const [options, setOptions] = React.useState(defaultOptions);
+  const [options, setOptions] = useState(defaultOptions);
 
   const onSelectOption = useCallback(
     (
@@ -212,7 +212,7 @@ export default function ContextMenuPlugin(): JSX.Element {
         if ($isLinkNode(parent)) {
           newOptions = [
             new ContextMenuOption(`Remove Link`, {
-              onSelect: (_node) => {
+              onSelect: () => {
                 editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
               },
             }),
@@ -233,7 +233,6 @@ export default function ContextMenuPlugin(): JSX.Element {
         anchorElementRef,
         {
           selectedIndex,
-          options: _options,
           selectOptionAndCleanUp,
           setHighlightedIndex,
         },

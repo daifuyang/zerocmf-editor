@@ -17,7 +17,7 @@ import {
 } from '@lexical/react/LexicalAutoEmbedPlugin';
 import {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 import {useMemo, useState} from 'react';
-import * as React from 'react';
+
 import * as ReactDOM from 'react-dom';
 
 import useModal from '../../hooks/useModal';
