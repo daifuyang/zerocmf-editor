@@ -54,12 +54,12 @@ import TabFocusPlugin from "./plugins/TabFocusPlugin";
 import TableCellActionMenuPlugin from "./plugins/TableActionMenuPlugin";
 import TableCellResizer from "./plugins/TableCellResizer";
 import TableHoverActionsPlugin from "./plugins/TableHoverActionsPlugin";
-import TableOfContentsPlugin from "./plugins/TableOfContentsPlugin";
 import ToolbarPlugin from "./plugins/ToolbarPlugin";
 import ContentEditable from "./ui/ContentEditable";
 import { useToolbarState } from "./context/ToolbarContext";
 import classnames from "classnames";
 import OnchangePlugin from "./plugins/OnchangePlugin";
+import ImagesPlugin from "./plugins/ImagesPlugin";
 
 interface Props {
   value?: string;
@@ -120,7 +120,7 @@ export default function Editor(props: Props): JSX.Element {
           <DragDropPaste />
           <AutoFocusPlugin />
           <ClearEditorPlugin />
-          {/* <ComponentPickerPlugin /> */}
+
           <EmojiPickerPlugin />
           <AutoEmbedPlugin />
           <MentionsPlugin />
@@ -147,8 +147,8 @@ export default function Editor(props: Props): JSX.Element {
           <CheckListPlugin />
           <TablePlugin />
           <TableCellResizer />
-          {/* <ImagesPlugin />
-              <InlineImagePlugin /> */}
+          <ImagesPlugin captionsEnabled={false} />
+          {/*   <InlineImagePlugin /> */}
           <LinkPlugin />
           {/* <PollPlugin />
               <TwitterPlugin />
@@ -185,10 +185,7 @@ export default function Editor(props: Props): JSX.Element {
             </>
           )}
 
-          {<AutocompletePlugin />}
-          <div>
-            <TableOfContentsPlugin />
-          </div>
+          <AutocompletePlugin />
           <ContextMenuPlugin />
           <SpecialTextPlugin />
         </div>

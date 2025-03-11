@@ -219,7 +219,7 @@ export default function ImagesPlugin({
       editor.registerCommand<InsertImagePayload>(
         INSERT_IMAGE_COMMAND,
         (payload) => {
-          const imageNode = $createImageNode(payload);
+          const imageNode = $createImageNode({...payload, captionsEnabled});
           $insertNodes([imageNode]);
           if ($isRootOrShadowRoot(imageNode.getParentOrThrow())) {
             $wrapNodeInElement(imageNode, $createParagraphNode).selectEnd();
@@ -258,7 +258,8 @@ export default function ImagesPlugin({
 
 const TRANSPARENT_IMAGE =
   'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
-const img = <img src={TRANSPARENT_IMAGE} /> as unknown as Element
+  const img = document.createElement('img');
+  img.src = TRANSPARENT_IMAGE;
 
 function $onDragStart(event: DragEvent): boolean {
   const node = $getImageNodeInSelection();

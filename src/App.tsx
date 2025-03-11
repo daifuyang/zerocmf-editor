@@ -5,21 +5,23 @@ import { SharedHistoryContext } from "./context/SharedHistoryContext";
 import { ToolbarContext } from "./context/ToolbarContext";
 import Editor from "./Editor";
 
-import PlaygroundNodes from "./nodes/PlaygroundNodes";
+import EditorNodes from "./nodes/EditorNodes";
 import { TableContext } from "./plugins/TablePlugin";
 import { parseAllowedFontSize } from "./plugins/ToolbarPlugin/fontSize";
 import ZerocmfEditorTheme from "./themes/ZerocmfEditorTheme";
 import { parseAllowedColor } from "./ui/ColorPicker";
 import { namespace } from "./appSettings";
 import "./App.css";
+import { ReactNode } from "react";
 
 interface Props {
   editable?: boolean;
   value?: string;
   onChange?: (value: unknown) => void;
+  imagePickerRender?: (props: imagePickerRenderProps) => ReactNode;
 }
 function App(props: Props): JSX.Element {
-  const { editable = true, value, onChange } = props;
+  const { editable = true, value, onChange, imagePickerRender } = props;
   function getExtraStyles(element: HTMLElement): string {
     // Parse styles from pasted input, but only if they match exactly the
     // sort of styles that would be produced by exportDOM
@@ -88,7 +90,7 @@ function App(props: Props): JSX.Element {
     editable,
     html: { import: buildImportMap() },
     namespace,
-    nodes: [...PlaygroundNodes],
+    nodes: [...EditorNodes],
     onError: (error: Error) => {
       throw error;
     },
@@ -102,7 +104,7 @@ function App(props: Props): JSX.Element {
       <LexicalComposer initialConfig={initialConfig}>
         <SharedHistoryContext>
           <TableContext>
-            <ToolbarContext>
+            <ToolbarContext imagePickerRender={imagePickerRender}>
               <Editor value={value} onChange={onChange} />
               {/* <Settings /> */}
             </ToolbarContext>

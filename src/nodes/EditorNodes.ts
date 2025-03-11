@@ -27,7 +27,7 @@ import { EquationNode } from "./EquationNode";
 // import {ExcalidrawNode} from './ExcalidrawNode';
 // import {FigmaNode} from './FigmaNode';
 import { ImageNode } from "./ImageNode";
-import { InlineImageNode } from "./InlineImageNode/InlineImageNode";
+// import { InlineImageNode } from "./InlineImageNode/InlineImageNode";
 import { KeywordNode } from "./KeywordNode";
 import { LayoutContainerNode } from "./LayoutContainerNode";
 import { LayoutItemNode } from "./LayoutItemNode";
@@ -39,7 +39,7 @@ import { StickyNode } from "./StickyNode";
 // import {TweetNode} from './TweetNode';
 // import {YouTubeNode} from './YouTubeNode';
 
-const PlaygroundNodes: Array<Klass<LexicalNode>> = [
+const EditorNodes: Array<Klass<LexicalNode>> = [
   HeadingNode,
   ListNode,
   ListItemNode,
@@ -56,7 +56,7 @@ const PlaygroundNodes: Array<Klass<LexicalNode>> = [
   // PollNode,
   StickyNode,
   ImageNode,
-  InlineImageNode,
+  // InlineImageNode,
   MentionNode,
   EmojiNode,
   // ExcalidrawNode,
@@ -77,4 +77,4 @@ const PlaygroundNodes: Array<Klass<LexicalNode>> = [
   SpecialTextNode
 ];
 
-export default PlaygroundNodes;
+export default EditorNodes;
