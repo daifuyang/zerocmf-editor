@@ -263,6 +263,7 @@ export default function CollapsiblePlugin(): null {
         INSERT_COLLAPSIBLE_COMMAND,
         () => {
           editor.update(() => {
+            console.log('insert collapsible');
             const title = $createCollapsibleTitleNode();
             const paragraph = $createParagraphNode();
             $insertNodeToNearestRoot(

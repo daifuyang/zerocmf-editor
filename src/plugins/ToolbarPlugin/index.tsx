@@ -1093,6 +1093,7 @@ export default function ToolbarPlugin({
                 </DropDownItem> */}
                   <DropDownItem
                     onClick={() => {
+                      console.log("CollapsiblePlugin");
                       editor.dispatchCommand(INSERT_COLLAPSIBLE_COMMAND, undefined);
                     }}
                     className="item"

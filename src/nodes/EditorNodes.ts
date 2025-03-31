@@ -18,9 +18,9 @@ import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 
-/* import { CollapsibleContainerNode } from "../plugins/CollapsiblePlugin/CollapsibleContainerNode";
+import { CollapsibleContainerNode } from "../plugins/CollapsiblePlugin/CollapsibleContainerNode";
 import { CollapsibleContentNode } from "../plugins/CollapsiblePlugin/CollapsibleContentNode";
-import { CollapsibleTitleNode } from "../plugins/CollapsiblePlugin/CollapsibleTitleNode"; */
+import { CollapsibleTitleNode } from "../plugins/CollapsiblePlugin/CollapsibleTitleNode";
 import { AutocompleteNode } from "./AutocompleteNode";
 import { EmojiNode } from "./EmojiNode";
 import { EquationNode } from "./EquationNode";
@@ -68,9 +68,9 @@ const EditorNodes: Array<Klass<LexicalNode>> = [
   // YouTubeNode,
   // FigmaNode,
   MarkNode,
-  // CollapsibleContainerNode,
-  // CollapsibleContentNode,
-  // CollapsibleTitleNode,
+  CollapsibleContainerNode,
+  CollapsibleContentNode,
+  CollapsibleTitleNode,
   PageBreakNode,
   LayoutContainerNode,
   LayoutItemNode,

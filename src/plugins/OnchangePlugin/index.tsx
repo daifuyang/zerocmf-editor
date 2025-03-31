@@ -61,6 +61,7 @@ export default function OnchangePlugin({
         root.clear();
         // Insert them at a selection.
         $insertNodes(nodes);
+        root.selectStart();
       }
     });
   }, []);

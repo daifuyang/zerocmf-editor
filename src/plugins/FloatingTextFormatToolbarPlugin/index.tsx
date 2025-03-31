@@ -30,7 +30,6 @@ import { createPortal } from "react-dom";
 import { getDOMRangeRect } from "../../utils/getDOMRangeRect";
 import { getSelectedNode } from "../../utils/getSelectedNode";
 import { setFloatingElemPosition } from "../../utils/setFloatingElemPosition";
-import { INSERT_INLINE_COMMAND } from "../CommentPlugin";
 
 function TextFormatFloatingToolbar({
   editor,
@@ -75,9 +74,9 @@ function TextFormatFloatingToolbar({
     }
   }, [editor, isLink, setIsLinkEditMode]);
 
-  const insertComment = () => {
+/*   const insertComment = () => {
     editor.dispatchCommand(INSERT_INLINE_COMMAND, undefined);
-  };
+  }; */
 
   function mouseMoveListener(e: MouseEvent) {
     if (popupCharStylesEditorRef?.current && (e.buttons === 1 || e.buttons === 3)) {
@@ -191,8 +190,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "bold");
             }}
             className={"popup-item spaced " + (isBold ? "active" : "")}
-            title="Bold"
-            aria-label="Format text as bold"
+            title="加粗"
+            aria-label="将文字设置为加粗"
           >
             <i className="format bold" />
           </button>
@@ -202,8 +201,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "italic");
             }}
             className={"popup-item spaced " + (isItalic ? "active" : "")}
-            title="Italic"
-            aria-label="Format text as italics"
+            title="斜体"
+            aria-label="将文字设置为斜体"
           >
             <i className="format italic" />
           </button>
@@ -213,8 +212,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "underline");
             }}
             className={"popup-item spaced " + (isUnderline ? "active" : "")}
-            title="Underline"
-            aria-label="Format text to underlined"
+            title="下划线"
+            aria-label="为文字添加下划线"
           >
             <i className="format underline" />
           </button>
@@ -224,8 +223,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "strikethrough");
             }}
             className={"popup-item spaced " + (isStrikethrough ? "active" : "")}
-            title="Strikethrough"
-            aria-label="Format text with a strikethrough"
+            title="删除线"
+            aria-label="为文字添加删除线"
           >
             <i className="format strikethrough" />
           </button>
@@ -235,8 +234,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "subscript");
             }}
             className={"popup-item spaced " + (isSubscript ? "active" : "")}
-            title="Subscript"
-            aria-label="Format Subscript"
+            title="下标"
+            aria-label="设置为下标"
           >
             <i className="format subscript" />
           </button>
@@ -246,8 +245,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "superscript");
             }}
             className={"popup-item spaced " + (isSuperscript ? "active" : "")}
-            title="Superscript"
-            aria-label="Format Superscript"
+            title="上标"
+            aria-label="设置为上标"
           >
             <i className="format superscript" />
           </button>
@@ -257,8 +256,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "uppercase");
             }}
             className={"popup-item spaced " + (isUppercase ? "active" : "")}
-            title="Uppercase"
-            aria-label="Format text to uppercase"
+            title="大写"
+            aria-label="将文字转换为大写"
           >
             <i className="format uppercase" />
           </button>
@@ -268,8 +267,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "lowercase");
             }}
             className={"popup-item spaced " + (isLowercase ? "active" : "")}
-            title="Lowercase"
-            aria-label="Format text to lowercase"
+            title="小写"
+            aria-label="将文字转换为小写"
           >
             <i className="format lowercase" />
           </button>
@@ -279,8 +278,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "capitalize");
             }}
             className={"popup-item spaced " + (isCapitalize ? "active" : "")}
-            title="Capitalize"
-            aria-label="Format text to capitalize"
+            title="首字母大写"
+            aria-label="将文字首字母大写"
           >
             <i className="format capitalize" />
           </button>
@@ -290,8 +289,8 @@ function TextFormatFloatingToolbar({
               editor.dispatchCommand(FORMAT_TEXT_COMMAND, "code");
             }}
             className={"popup-item spaced " + (isCode ? "active" : "")}
-            title="Insert code block"
-            aria-label="Insert code block"
+            title="插入代码块"
+            aria-label="插入代码块"
           >
             <i className="format code" />
           </button>
@@ -299,14 +298,14 @@ function TextFormatFloatingToolbar({
             type="button"
             onClick={insertLink}
             className={"popup-item spaced " + (isLink ? "active" : "")}
-            title="Insert link"
-            aria-label="Insert link"
+            title="插入链接"
+            aria-label="插入链接"
           >
             <i className="format link" />
           </button>
         </>
       )}
-      <button
+{/*       <button
         type="button"
         onClick={insertComment}
         className={"popup-item spaced insert-comment"}
@@ -314,7 +313,7 @@ function TextFormatFloatingToolbar({
         aria-label="Insert comment"
       >
         <i className="format add-comment" />
-      </button>
+      </button> */}
     </div>
   );
 }

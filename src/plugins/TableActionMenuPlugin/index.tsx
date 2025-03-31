@@ -481,7 +481,7 @@ function TableActionMenu({
           className="item"
           onClick={() => mergeTableCellsAtSelection()}
           data-test-id="table-merge-cells">
-          <span className="text">Merge cells</span>
+          <span className="text">合并单元格</span>
         </button>
       );
     } else if (canUnmergeCell) {
@@ -491,7 +491,7 @@ function TableActionMenu({
           className="item"
           onClick={() => unmergeTableCellsAtSelection()}
           data-test-id="table-unmerge-cells">
-          <span className="text">Unmerge cells</span>
+          <span className="text">取消合并单元格</span>
         </button>
       );
     }
@@ -510,7 +510,7 @@ function TableActionMenu({
         type="button"
         className="item"
         onClick={() =>
-          showColorPickerModal('Cell background color', () => (
+          showColorPickerModal('单元格背景颜色', () => (
             <ColorPicker
               color={backgroundColor}
               onChange={handleCellBackgroundColor}
@@ -518,14 +518,14 @@ function TableActionMenu({
           ))
         }
         data-test-id="table-background-color">
-        <span className="text">Background color</span>
+          <span className="text">背景颜色</span>
       </button>
       <button
         type="button"
         className="item"
         onClick={() => toggleRowStriping()}
         data-test-id="table-row-striping">
-        <span className="text">Toggle Row Striping</span>
+        <span className="text">切换行条纹</span>
       </button>
       <hr />
       <button
@@ -534,9 +534,8 @@ function TableActionMenu({
         onClick={() => insertTableRowAtSelection(false)}
         data-test-id="table-insert-row-above">
         <span className="text">
-          Insert{' '}
-          {selectionCounts.rows === 1 ? 'row' : `${selectionCounts.rows} rows`}{' '}
-          above
+          在上方插入{' '}
+          {selectionCounts.rows === 1 ? '行' : `${selectionCounts.rows} 行`}
         </span>
       </button>
       <button
@@ -545,9 +544,8 @@ function TableActionMenu({
         onClick={() => insertTableRowAtSelection(true)}
         data-test-id="table-insert-row-below">
         <span className="text">
-          Insert{' '}
-          {selectionCounts.rows === 1 ? 'row' : `${selectionCounts.rows} rows`}{' '}
-          below
+          在下方插入{' '}
+          {selectionCounts.rows === 1 ? '行' : `${selectionCounts.rows} 行`}
         </span>
       </button>
       <hr />
@@ -557,11 +555,10 @@ function TableActionMenu({
         onClick={() => insertTableColumnAtSelection(false)}
         data-test-id="table-insert-column-before">
         <span className="text">
-          Insert{' '}
+          在左侧插入{' '}
           {selectionCounts.columns === 1
-            ? 'column'
-            : `${selectionCounts.columns} columns`}{' '}
-          left
+            ? '列' 
+            : `${selectionCounts.columns} 列`}
         </span>
       </button>
       <button
@@ -570,11 +567,10 @@ function TableActionMenu({
         onClick={() => insertTableColumnAtSelection(true)}
         data-test-id="table-insert-column-after">
         <span className="text">
-          Insert{' '}
+          在右侧插入{' '}
           {selectionCounts.columns === 1
-            ? 'column'
-            : `${selectionCounts.columns} columns`}{' '}
-          right
+            ? '列' 
+            : `${selectionCounts.columns} 列`}
         </span>
       </button>
       <hr />
@@ -583,21 +579,21 @@ function TableActionMenu({
         className="item"
         onClick={() => deleteTableColumnAtSelection()}
         data-test-id="table-delete-columns">
-        <span className="text">Delete column</span>
+        <span className="text">删除列</span>
       </button>
       <button
         type="button"
         className="item"
         onClick={() => deleteTableRowAtSelection()}
         data-test-id="table-delete-rows">
-        <span className="text">Delete row</span>
+          <span className="text">删除行</span>
       </button>
       <button
         type="button"
         className="item"
         onClick={() => deleteTableAtSelection()}
         data-test-id="table-delete">
-        <span className="text">Delete table</span>
+          <span className="text">删除表格</span>
       </button>
       <hr />
       <button
@@ -607,9 +603,9 @@ function TableActionMenu({
         <span className="text">
           {(tableCellNode.__headerState & TableCellHeaderStates.ROW) ===
           TableCellHeaderStates.ROW
-            ? 'Remove'
-            : 'Add'}{' '}
-          row header
+            ? '移除'
+            : '添加'}{' '}
+          行标题
         </span>
       </button>
       <button
@@ -620,9 +616,9 @@ function TableActionMenu({
         <span className="text">
           {(tableCellNode.__headerState & TableCellHeaderStates.COLUMN) ===
           TableCellHeaderStates.COLUMN
-            ? 'Remove'
-            : 'Add'}{' '}
-          column header
+            ? '移除'
+            : '添加'}{' '}
+          列标题
         </span>
       </button>
     </div>,

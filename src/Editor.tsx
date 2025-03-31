@@ -60,6 +60,7 @@ import { useToolbarState } from "./context/ToolbarContext";
 import classnames from "classnames";
 import OnchangePlugin from "./plugins/OnchangePlugin";
 import ImagesPlugin from "./plugins/ImagesPlugin";
+import CollapsiblePlugin from "./plugins/CollapsiblePlugin";
 
 interface Props {
   value?: string;
@@ -118,7 +119,7 @@ export default function Editor(props: Props): JSX.Element {
         <div className={`editor-container`}>
           <OnchangePlugin value={value} onChange={onChange} />
           <DragDropPaste />
-          <AutoFocusPlugin />
+          <AutoFocusPlugin defaultSelection='rootStart' />
           <ClearEditorPlugin />
 
           <EmojiPickerPlugin />
@@ -160,7 +161,7 @@ export default function Editor(props: Props): JSX.Element {
           {/* <ExcalidrawPlugin /> */}
           <TabFocusPlugin />
           <TabIndentationPlugin maxIndent={7} />
-          {/* <CollapsiblePlugin /> */}
+          <CollapsiblePlugin />
           <PageBreakPlugin />
           <LayoutPlugin />
           {floatingAnchorElem && !isSmallWidthViewport && (
