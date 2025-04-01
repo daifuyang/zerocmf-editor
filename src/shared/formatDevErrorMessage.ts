@@ -5,4 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-export default function invariant(cond?: boolean, message?: string): asserts cond;
+
+// Do not require this module directly! Use normal `invariant` calls.
+
+export default function formatDevErrorMessage(message: string): never {
+  throw new Error(message);
+}

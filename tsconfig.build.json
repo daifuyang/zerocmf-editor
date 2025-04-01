@@ -10,14 +10,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".", // 基础路径
+    "baseUrl": ".",
     "paths": {
-      "shared/*": ["shared/src/*"] // 路径别名
+      "shared/*": ["./src/shared/*"] 
     },
-    "declaration": true /* 生成相关的 '.d.ts' 文件。 */,
-    "declarationDir": "es" /* '.d.ts' 文件输出目录 */,
-    "emitDeclarationOnly": true /* 只生成声明文件，不生成 js 文件*/,
-    "rootDir": "." /* 指定输出文件目录（用于输出），用于控制输出目录结构 */
+    "declaration": true,
+    "declarationDir": "es",
+    "emitDeclarationOnly": true,
+    "rootDir": "./src"
   },
   "include": ["src/**/*", "global.d.ts"],
   "exclude": ["node_modules", "dist", "es", "lib"]

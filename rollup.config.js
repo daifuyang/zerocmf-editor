@@ -1,4 +1,4 @@
-const typescript = require("@rollup/plugin-typescript");
+ const typescript = require("@rollup/plugin-typescript");
 const postcss = require("rollup-plugin-postcss");
 const commonjs = require("@rollup/plugin-commonjs");
 const { terser } = require("rollup-plugin-terser");
@@ -10,7 +10,7 @@ const clear = require("rollup-plugin-clear");
 const path = require("path");
 
 const currentDir = process.cwd();
-const replacement = path.resolve(currentDir, "shared/src");
+const replacement = path.resolve(currentDir, "src/shared");
 
 export default {
   input: "src/index.ts",
@@ -23,6 +23,9 @@ export default {
     { dir: "es", format: "es", sourcemap: true },
     { dir: "lib", format: "cjs", sourcemap: true }
   ],
+  defiend: {
+    __DEV__: JSON.stringify(process.env.NODE_ENV === "development")
+  },
   plugins: [
     image(),
     alias({
@@ -35,7 +38,7 @@ export default {
     }),
     typescript({
       tsconfig: "./tsconfig.app.json",
-      include: ["shared/**/*.ts", "src/**/*.ts", "src/**/*.tsx"], // Include TypeScript files
+      include: ["src/**/*.ts", "src/**/*.tsx"], // Include TypeScript files
       exclude: ["node_modules/**"], // Exclude node_modules
     }),
     postcss({

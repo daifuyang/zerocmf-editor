@@ -15,9 +15,7 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build1": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
     "build": "npx rollup -c --bundleConfigAsCjs && tsc -b ./tsconfig.build.json"
   },
   "dependencies": {
